@@ -1,0 +1,4 @@
+inventory
+=========
+
+buat inventaris NCC
