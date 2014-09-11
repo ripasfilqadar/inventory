@@ -1,0 +1,15 @@
+/* ===== START YOUR CUSTOMIZATIONS HERE ===== */
+ul.info {
+	margin-bottom: 0px;
+}
+
+ul.info li {
+	padding-left: 1.2em;
+}
+
+ul.info li:before {
+	content: &#xf105;;
+	font-family: 'FontAwesome';
+	display: inline-block;
+	margin-left: -1.2em;
+}
