@@ -7,7 +7,7 @@ class Barang extends CI_Model
 	}
 	function get_barang()
 	{
-		$query = $this->db->get_where('barang', array('status' => 1));
+		$query = $this->db->get_where('barang');
 		return $query->result();
 	}
 	function get_barang3($id)
@@ -15,17 +15,12 @@ class Barang extends CI_Model
 		$query = $this->db->get_where('barang', array('id_barang' => $id));
 		return $query->row();
 	}
-	function get_barang2()
+	function detail_peminjaman($id)
 	{
-		$query = $this->db->get_where('barang', array('status' => 0));
-		return $query->result();
+		$query="SELECT b.`nama_barang`, b.`keadaan` FROM peminjaman p, detail_peminjaman dp, barang b WHERE dp.`id_peminjaman`=$id AND b.`id_barang`= dp.`id_barang` AND dp.`id_peminjaman`=p.`id_peminjaman`";
+		$query=$this->db->query($query);
+		return $query->result_array();
 	}
-	function ubahstok($id, $qty)
-    {
-        $query="update barang set stok=stok -$qty where id_barang=$id";
-        $query=$this->db->query($query);
-    }
-
     function finish($nama,$nrp,$no_hp)
 	{
 		$query="SELECT MAX(id_peminjaman) AS MAX FROM peminjaman";
@@ -37,26 +32,33 @@ class Barang extends CI_Model
 		$tb=0;
 		foreach ($this->cart->contents() as $items)
 		{
-			$total=$items['qty']*$items['price'];
-			$query="insert into detailpeminjaman values ('$a', '$items[id]',$items[qty])";
-			$this->db->query($query);	
-			$b=$b+$total;
-			$query2="update barang set stok=stok - $items[qty] where id_barang=$items[id]";
-			$query2=$this->db->query($query2);
-			$tb=$tb+$items['qty'];
+			$query="insert into detail_peminjaman values ('$items[id]','$a')";
+			$this->db->query($query);
+			$query="update barang set status=2 where id_barang='$items[id]'";
+			$this->db->query($query);
 		}
 		
 		$tgl = Date("Y-m-d H:i:s");
-		$query="insert into peminjaman values ('$a','$nrp', '$nama','$tb','$tgl')";
-		if ($query=$this->db->query($query)) return true;
-		else
-		{
-			$a=$a+1;
-			$query="insert into peminjaman values ('$a','$nrp', '$nama','$tb','$tgl')";
-			$query=$this->db->query($query);
-		}
+		$query="insert into peminjaman values ('$a','$nrp', '$nama','$tgl','$tb')";
+		$query=$this->db->query($query);
 		return $a;
+	}
 
+	public function list_peminjaman()
+	{
+		$query="select * from peminjaman";
+		$query=$this->db->query($query);
+		return $query->result();
+	}
+	public function acc_barang($id)
+	{
+		$query="update peminjaman";
+	}
+	function detail_transaksi($id)
+	{
+		$query="SELECT b.* FROM detail_peminjaman dp, barang b WHERE dp.`id_peminjaman`=$id AND b.`id_barang`=dp.`id_barang`";
+		$query=$this->db->query($query);
+		return $query->result();
 	}
 	
 }

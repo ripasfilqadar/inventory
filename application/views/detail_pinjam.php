@@ -5,7 +5,6 @@
 			<tr>
 			  <th>Foto</th>
 			  <th>Nama Barang</th>
-			  <th>Jumlah</th>
 			  <th style="text-align:center"></th>
 
 			</tr>
@@ -17,10 +16,8 @@
 			 		<td><?php $query="select * from barang where id_barang='$items[id]'";
 				 		$row=mysql_query($query);
 				 		$row=mysql_fetch_row($row);
-				 		echo '<img src="data:image/jpeg;base64,'.base64_encode($row[7] ).'"width=100px height=100px>';?>
+				 		echo '<img src="data:image/jpeg;base64,'.base64_encode($row[4] ).'"width=100px height=100px>';?>
 			 		<td><?php echo $items['name'];?></td>
-			 	
-				  	<td><input name="qty" type="text" value="<?php echo $items['qty']?>"></td>
 				  	<td style="text-align:center"><input type="submit" value="Update" class="search-submit"></td>
 			 	</tr>
 			 </form>
