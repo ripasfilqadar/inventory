@@ -22,7 +22,13 @@
 		</tbody>
 		<?php };?>
 	</table>
-	<a href="<?php echo base_url()?>pinjam/acc/<?php echo $id?>">ACC</a>
-	<a href="<?php echo base_url()?>pinjam/tolak/<?php echo $id?>">Tolak</a>
+	<?php if ($flag->status_peminjaman==0)
+	{
+		?>
+		<a href="<?php echo base_url()?>admin/acc/<?php echo $id?>">ACC</a>
+		<a href="<?php echo base_url()?>admin/tolak/<?php echo $id?>">Tolak</a>
+	<?php
+	};?>
+	
 
 </div>

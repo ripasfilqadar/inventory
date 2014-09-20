@@ -22,9 +22,13 @@
 						 }
 					if ($row->status_peminjaman == 1)
 						echo "ACC";
+					if ($row->status_peminjaman == 2)
+						echo "Di Tolak";
 					?>
 				</td>
-				<td><a href="<?php echo base_url();?>page/detail_pinjam/<?php echo $row->id_peminjaman?>">LIST</a></td>
+				<?php if ($flag==1)
+				{?>
+				<td><a href="<?php echo base_url();?>admin_page/detail_pinjam/<?php echo $row->id_peminjaman?>">LIST</a></td> <?php };?>
 			</tr>
 		</tbody>
 		<?php };?>

@@ -1,6 +1,6 @@
 <div>
 </div>
-<h1>Inventaris Bisa Dipinjam</h1>
+<h1>Inventaris  NCC</h1>
 <div>
 	<table class="table table-bordered table-hover table-striped">
 		<thead style="background-color: #dde4e6; font-weight: bold;">
@@ -20,12 +20,20 @@
 					if ($row->keadaan==0) echo "Bagus";
 					else echo "Rusak"?></td>
 				<td><?php 
-					if ($row->status == 1) {?>
+					if ($row->status == 1&& $flag==0) {?>
 						<a href="<?php echo base_url();?>pinjam/pinjam_barang/<?php echo $row->id_barang?>">Pinjam</a>
 						<?php }
-					if ($row->status == 2)
-						echo "Dipinjam"
-				?>
+					if ($row->status == 2 && $flag==0)
+						echo "Dipinjam";
+					if ($row->status == 1&& $flag==1) 
+						echo "Ada";
+						?>
+						
+
+				</td>
+				<td><?php
+					if ($flag==1)?>
+					<a href="<?php echo base_url()?>admin_page/edit_barang/<?php echo $row->id_barang?>">Edit</a>
 				</td>
 			</tr>
 		</tbody>

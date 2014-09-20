@@ -24,10 +24,21 @@
                     <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#navigation"></button>
                     <div class="collapse navbar-collapse main-nav" id="navigation">
                         <ul class="nav pull-right">
-                            <li><a href="<?php echo base_url()?>page/pinjam">Inventaris</a>
+                            <li><a href="<?php echo base_url()?>admin_page/list_barang">Barang</a>
+                                <ul>
+                                    <li><a href="<?php echo base_url()?>admin_page/list_barang">List Barang</a>
+                                    <li><a href="<?php echo base_url();?>admin_page/tambah_barang">Tambah barang</a></li>
+                                </ul>
                             </li>
-                             <li><a href="<?php echo base_url()?>page/list_pinjam">List Peminjaman</a>
+                             <li><a href="<?php echo base_url()?>admin_page/list_pinjam">Peminjaman</a>
                             </li>
+                            
+                            <li><a href="<?php echo base_url();?>login/logout">Logout</a>
+                            </li>
+                            <li>
+                                
+                            </li> 
+                           
                         </ul>
 
 

@@ -118,11 +118,5 @@ class Pinjam extends CI_Controller
         $pdfku->ezStream();
 	}
 
-	public function acc($id)
-	{
-		$this->barang->acc_barang($id);
-		$data['data']=$this->barang->list_peminjaman();
-		$this->load->view('header');
-		$this->load->view('admin/list_pinjam',$data);
-	}
+
 }

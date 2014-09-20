@@ -39,7 +39,7 @@ class Barang extends CI_Model
 		}
 		
 		$tgl = Date("Y-m-d H:i:s");
-		$query="insert into peminjaman values ('$a','$nrp', '$nama','$tgl','$tb')";
+		$query="insert into peminjaman values ('$a','$nrp', '$nama','$tgl','$tb',0)";
 		$query=$this->db->query($query);
 		return $a;
 	}
@@ -52,13 +52,45 @@ class Barang extends CI_Model
 	}
 	public function acc_barang($id)
 	{
-		$query="update peminjaman";
+		$query="update peminjaman set status_peminjaman=1 where id_peminjaman='$id'";
+		$query=$this->db->query($query);
+	}
+	public function tolak_barang($id)
+	{
+		$query="update peminjaman set status_peminjaman=2 where id_peminjaman='$id'";
+		$query=$this->db->query($query);
 	}
 	function detail_transaksi($id)
 	{
 		$query="SELECT b.* FROM detail_peminjaman dp, barang b WHERE dp.`id_peminjaman`=$id AND b.`id_barang`=dp.`id_barang`";
 		$query=$this->db->query($query);
 		return $query->result();
+	}
+	function flag_transaksi($id)
+	{
+		$query="select status_peminjaman from peminjaman where id_peminjaman='$id'";
+		$query=$this->db->query($query);
+		return $query->row();
+	}
+	function tambah($data)
+	{
+		$this->db->insert('barang', $data); 
+	}
+	function edit($data,$id)
+	{
+		$this->db->where('id_barang', $id);
+		$this->db->update('barang', $data); 
+
+	}
+	function editphoto($id,$foto)
+	{
+		$data = array(
+               'foto' => $foto
+            );
+
+$this->db->where('id_barang', $id);
+$this->db->update('barang', $data); 
+
 	}
 	
 }
