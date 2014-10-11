@@ -1,51 +1,34 @@
 <!DOCTYPE html>
-<html lang="id">
-    <head>
-        <meta charset="utf-8"> 		
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="<?php echo base_url(); ?>css/flat-ui.css" rel="stylesheet">
-        <link href="<?php echo base_url(); ?>css/main.css" rel="stylesheet">
-        <link href="<?php echo base_url(); ?>css/style2.css" rel="stylesheet">
-        <link href="<?php echo base_url(); ?>css/custom.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/style1.css">
-        <link rel="shortcut icon" href="<?php echo base_url(); ?>images/icon.ico">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/style1.css">
+<html lang="en">
 
-        <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
-        <!--[if lt IE 9]>
-          <script src="js/html5shiv.js"></script>
-        <![endif]-->
-    </head>
-<body id="home" data-spy="scroll" data-target=".main-nav" data-offset="73">
-    <section id="header">
-        <nav class="navbar navbar-fixed-top" role="navigation">
-            <div class="navbar-inner">
-                <div class="container">
-                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#navigation"></button>
-                    <div class="collapse navbar-collapse main-nav" id="navigation">
-                        <ul class="nav pull-right">
-                            <li><a href="<?php echo base_url()?>admin_page/list_barang">Barang</a>
-                                <ul>
-                                    <li><a href="<?php echo base_url()?>admin_page/list_barang">List Barang</a>
-                                    <li><a href="<?php echo base_url();?>admin_page/tambah_barang">Tambah barang</a></li>
-                                </ul>
-                            </li>
-                             <li><a href="<?php echo base_url()?>admin_page/list_pinjam">Peminjaman</a>
-                            </li>
-                            
-                            <li><a href="<?php echo base_url();?>login/logout">Logout</a>
-                            </li>
-                            <li>
-                                
-                            </li> 
-                           
-                        </ul>
+<head>
 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="<?php echo base_url();?>ico.png">
+    <title>NCC Administrator</title>
 
+    <!-- Bootstrap Core CSS -->
+    <link href="<?php echo base_url()?>css/bootstrap.min.css" rel="stylesheet">
 
-                    </div>
-                </div>
-            </div>
-        </nav>
+    <!-- Custom CSS -->
+    <link href="<?php echo base_url()?>css/sb-admin.css" rel="stylesheet">
 
-    </section>
+    <!-- Morris Charts CSS -->
+    <link href="<?php echo base_url()?>css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="<?php echo base_url()?>font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/style2.css">
+</head>

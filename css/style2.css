@@ -8,8 +8,13 @@
 }
 .text
 {
+	float: right;
 	font-family: trebuchet ms,geneva; font-size: small;
-	color:black;
+	color:gray;
+	font-size: 18px;
+	margin-top: 10px;
+	margin-right: 20px;
+
 }
 .normaltext
 {
@@ -33,4 +38,32 @@
 	font-size: 20px;
 	margin: 10px 0px 10px 0px;
 	color: blue;
+}
+.tableheader
+{
+	
+	text-align: center;
+	font-style: bold;
+	font-size: 20px;
+}
+.link
+{
+	background-color: #2c3e50	;
+	font-color:white;
+	font-size: 18px;
+	width: 80px;
+	height: 40px;
+	text-align: center;
+	padding: 5px 5px 5px 5px;
+
+}
+a hover
+{
+ background-color: white;
+}
+.row_table
+{
+ font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+ font-weight: 2px;
+ font-size: 24px;
 }

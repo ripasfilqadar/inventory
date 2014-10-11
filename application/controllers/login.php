@@ -8,6 +8,8 @@ class Login extends CI_Controller
 		//$this->load->model('admin');
 		$this->load->library('session');
 		$this->load->model('user');
+		$this->load->library('cart');
+		$this->load->model('barang');
 	}
 	function index()
 	{
@@ -15,18 +17,28 @@ class Login extends CI_Controller
 	}
 	function masuk()
 	{
-		$id=$this->input->post('name');
+		$id=$this->input->post('nama');
 		$password=$this->input->post('password');
 		$a=$this->user->check($id, $password);
-		if ($a>0)
+		$data['flagkiri']=0;
+		$data['adminflag']=1;
+		if ($a==1)
 		{
-			$data= array ('user_id'=> $id);
+			$data= array ('user_id'=> $id, 'status_admin'=>$a);
 			$this->session->set_userdata($data);
-			$this->load->view('header');
+			redirect ('admin_page/list_barang');
 		}
-		elseif ($a==0)
+		elseif ($a==2)
 		{
-			redirect('login');
+		
+			$data= array ('user_id'=> $id, 'status_admin'=>$a);
+			$this->session->set_userdata($data);
+			redirect ('admin_page/list_barang');
+		}
+		elseif (a==0)
+		{
+			echo $a;
+			//redirect('page/login');
 		}
 	}
 	function logout()

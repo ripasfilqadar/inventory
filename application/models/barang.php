@@ -5,9 +5,10 @@ class Barang extends CI_Model
 	{
 		parent::__construct();
 	}
-	function get_barang()
+	function get_barang($a,$b)
 	{
-		$query = $this->db->get_where('barang');
+		$query="select * from barang order by nama_barang limit $b,$a";
+		$query=$this->db->query($query);
 		return $query->result();
 	}
 	function get_barang3($id)
@@ -17,7 +18,7 @@ class Barang extends CI_Model
 	}
 	function detail_peminjaman($id)
 	{
-		$query="SELECT b.`nama_barang`, b.`keadaan` FROM peminjaman p, detail_peminjaman dp, barang b WHERE dp.`id_peminjaman`=$id AND b.`id_barang`= dp.`id_barang` AND dp.`id_peminjaman`=p.`id_peminjaman`";
+		$query="SELECT b.`id_barang`, b.`nama_barang`, b.`keadaan` FROM peminjaman p, detail_peminjaman dp, barang b WHERE dp.`id_peminjaman`=$id AND b.`id_barang`= dp.`id_barang` AND dp.`id_peminjaman`=p.`id_peminjaman`";
 		$query=$this->db->query($query);
 		return $query->result_array();
 	}
@@ -39,7 +40,7 @@ class Barang extends CI_Model
 		}
 		
 		$tgl = Date("Y-m-d H:i:s");
-		$query="insert into peminjaman values ('$a','$nrp', '$nama','$tgl','$tb',0)";
+		$query="insert into peminjaman values ('$a','$nama', '$nrp','$tgl','$tb',0)";
 		$query=$this->db->query($query);
 		return $a;
 	}
@@ -88,9 +89,16 @@ class Barang extends CI_Model
                'foto' => $foto
             );
 
-$this->db->where('id_barang', $id);
-$this->db->update('barang', $data); 
+		$this->db->where('id_barang', $id);
+		$this->db->update('barang', $data); 
 
+	}
+	function update_status($id)
+	{
+		$data=array(
+			'status'=>3);
+		$this->db->where('id_barang', $id);
+		$this->db->update('barang', $data);
 	}
 	
 }

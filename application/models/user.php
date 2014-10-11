@@ -7,8 +7,9 @@ class User extends CI_Model
 	}
 	function check($id,$password)
 	{
-		$query="select username from user where username='$id' and password='$password'";
+		$query="select * from user where username='$id' and password='$password'";
 		$query=$this->db->query($query);
-		return $query->num_rows();
+		$num=$query->row();
+		return $num->status;
 	}
 }
