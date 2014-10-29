@@ -33,27 +33,27 @@
                                              <tbody>
                                                  <tr>
                                        
-                                                    <td><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($row->foto).'" width=100px height=120px>'?></td>
+                                                    <td><img src="<?php echo base_url()?>picture/<?php echo $row->id_barang?>.png" width="150px" height="150px"></td>
                                                      <td ><span class="row_table"><?php echo $row->nama_barang;?></span></td>
                                                     <td><span class="row_table"><?php
-                                                        if ($row->keadaan==0) echo "Bagus";
+                                                        if ($row->keadaan==1) echo "Bagus";
                                                         else echo "Rusak"?></span></td>
                                                     <td><span class="row_table"><?php
-                                                        if ($row->status == 1&& $flag==0) {?>
-                                                            <span class="link" style="float:left;padding:3px 3px 3px 3px;color:white">Ada</span>
+                                                        if ($row->status == 0) {?>
+                                                            <span class="link" style="float:left;padding:3px 3px 3px 3px;color:white;width:120px; height:60px">Tidak Bisa Dipinjam</span>
                                                             <?php }
-                                                        if ($row->status == 2 && $flag==0){?>
+                                                        else if ($row->status == 2){?>
                                                             <span class="link" style="float:left;padding:3px 3px 3px 3px;color:white">Dipinjam</span>
                                                             <?php }
-                                                        if ($row->status == 1&& $flag==1) {?>
+                                                        else if ($row->status == 1) {?>
                                                             <span class="link" style="float:left;padding:3px 3px 3px 3px;color:white">Ada</span>
                                                             <?php } ?>
                                                             </span>
                                                      </td>
                                                  
                                                      <td>
-                                                    
-                                                    <a class="link" style="float:left;padding:3px 3px 3px 3px;color:white" href="<?php echo base_url()?>admin_page/edit_barang/<?php echo $row->id_barang?>">Edit</a>                                                
+                                                    <a class="link" style="float:left;padding:3px 3px 3px 3px;color:white" href="<?php echo base_url()?>admin/edit_barang_page/<?php echo $row->id_barang?>">Edit</a>
+                                                    <a class="link" style="float:left;padding:3px 3px 3px 3px;color:white; margin-top:20px" href="<?php echo base_url()?>admin/hapus/<?php echo $row->id_barang?>">Hapus</a>
                                                     </td>
                                                 </tr>
                                               </tbody>

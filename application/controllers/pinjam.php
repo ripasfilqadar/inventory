@@ -51,33 +51,39 @@ class Pinjam extends CI_Controller
 		$this->form_validation->set_rules('nama', 'Nama', 'required');
 		$this->form_validation->set_rules('nrp', 'Alamat', 'required');
 		$this->form_validation->set_rules('no_hp', 'No HP', 'required');
-/*
-		if ($this->form_validation->run() == FALSE)
+		$data['flagkiri']=0;
+
+		if ($this->form_validation->run() == FALSE || $this->cart->total_items()==0 )
 		{
-			$this->load->view('header');
-			//$this->load->view('slider',$data);
-			$this->load->view('datadiri');
+			if ($this->form_validation->run() == FALSE)
+			{	$data['flagkiri']=0;
+				$this->load->view('header');
+				$this->load->view('indexkiri',$data);
+				$this->load->view('datadiri');
+			}
+			elseif ($this->cart->total_items()==0)
+			{
+				?> 
+				<script type="text/javascript">alert('anda belum meminjam apapun')</script>
+				<?php 
+				$this->load->view('header');
+				$this->load->view('indexkiri',$data);
+				$this->load->view('datadiri');
+			}
+			
 			
 		}
 
 		else
 		{
-			if ($this->cart->total_items()==0)
-			{
-				redirect('page/pinjam');
-			}
-			else
-			{*/
 				$nama=$this->input->post('nama');
 				$nrp=$this->input->post('nrp');
 				$no_hp=$this->input->post('no_hp');;
 				$a=$this->barang->finish($nama,$nrp,$no_hp);
 				
 				$this->bukti($a);
-				$this->cart->destroy();/*
-			}
-		
-		}*/
+				$this->cart->destroy();
+		}
 	}
 	public function bukti($a)
 	{

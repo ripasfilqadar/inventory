@@ -55,10 +55,7 @@
 								foreach($this->cart->contents() as $items)
 								{?>
 								 	<tr>
-								 		<td><?php $query="select * from barang where id_barang='$items[id]'";
-									 		$row=mysql_query($query);
-									 		$row=mysql_fetch_row($row);
-									 		echo '<img src="data:image/jpeg;base64,'.base64_encode($row[4] ).'"width=100px height=100px>';?>
+									 	<td><img src="<?php echo base_url()?>picture/<?php echo $items['id']?>.png" width="150px" height="150px"></td>
 								 		<td class="row_table" ><?php echo $items['name'];?></td>
                                         <td>
                                         <a class="link" style="float:left;padding:3px 3px 3px 3px;color:white"href="<?php echo base_url();?>pinjam/hapus_barang/<?php echo $items['rowid']?>">Cancel</a>

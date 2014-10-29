@@ -7,7 +7,7 @@ class Barang extends CI_Model
 	}
 	function get_barang($a,$b)
 	{
-		$query="select * from barang order by nama_barang limit $b,$a";
+		$query="select * from barang order by nama_barang limit $b,$a ";
 		$query=$this->db->query($query);
 		return $query->result();
 	}
@@ -18,7 +18,7 @@ class Barang extends CI_Model
 	}
 	function detail_peminjaman($id)
 	{
-		$query="SELECT b.`id_barang`, b.`nama_barang`, b.`keadaan` FROM peminjaman p, detail_peminjaman dp, barang b WHERE dp.`id_peminjaman`=$id AND b.`id_barang`= dp.`id_barang` AND dp.`id_peminjaman`=p.`id_peminjaman`";
+		$query="SELECT b.* FROM peminjaman p, detail_peminjaman dp, barang b WHERE dp.`id_peminjaman`=$id AND b.`id_barang`= dp.`id_barang` AND dp.`id_peminjaman`=p.`id_peminjaman`";
 		$query=$this->db->query($query);
 		return $query->result_array();
 	}
@@ -83,10 +83,10 @@ class Barang extends CI_Model
 		$this->db->update('barang', $data); 
 
 	}
-	function editphoto($id,$foto)
+	function editphoto($id,$nama)
 	{
 		$data = array(
-               'foto' => $foto
+               'id_barang' => $nama
             );
 
 		$this->db->where('id_barang', $id);
@@ -99,6 +99,11 @@ class Barang extends CI_Model
 			'status'=>3);
 		$this->db->where('id_barang', $id);
 		$this->db->update('barang', $data);
+	}
+	function hapus($id)
+	{
+		$this->db->where('id_barang', $id);
+		$this->db->delete('barang'); 
 	}
 	
 }

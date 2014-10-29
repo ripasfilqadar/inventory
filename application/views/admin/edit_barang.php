@@ -1,4 +1,5 @@
 
+
     <div id="wrapper" style="padding-left: 0px;">
     
         <div id="page-wrapper" >
@@ -15,22 +16,23 @@
                     </div>
                 </div>
                 <!-- /.row -->
-                <h2 style="text-align:center"> Edit Invetaris</h2>
-                    <form action="<?php echo base_url();?>index.php/admin/editphoto/<?php echo $data->id_barang;?>" method="post" enctype="multipart/form-data">
+                <h2 style="text-align:center"> Edit Invetaris</h2><?php
+                    $attributes = array('enctype' => 'multipart/form-data');
+                            echo form_open("admin/editphoto/$data->id_barang",$attributes); ?>
         
                     <div class="form-group" style="width:50%">
                         <label>Gambar</label>
-                             <?php echo '<img src="data:image/jpeg;base64,'.base64_encode($data->foto).'" width=100px height=100px>'?>
+                             <td><img src="<?php echo base_url()?>picture/<?php echo $data->id_barang?>.png" width="150px" height="150px" style="border:2px solid"></td>
                     </div>
 
                     <div class="form-group" style="width:50%">
-                            <input type="file" value="<?php echo '<img src="data:image/jpeg;base64,'.base64_encode($data->foto).'"'?>" name="foto">
+                            <input src="<?php echo base_url()?>picture/<?php echo $data->id_barang?>.png" width="150px" height="150px" name="userfile" type="file">
                     </div>
 
                    <input type="submit" class="btn btn-default" value="Edit">  
                 </form>
 
-                <form action="<?php echo base_url();?>index.php/admin/edit_barang/<?php echo $data->id_barang;?>" method="post" enctype="multipart/form-data" >
+                <form action="<?php echo base_url();?>admin/edit_barang/<?php echo $data->id_barang;?>" method="post" enctype="multipart/form-data" >
                     <div class="form-group" style="width:50%">
                         <label>Nama</label>
                             <input type="text" value="<?php echo $data->nama_barang;?>" name="nama" class="form-control">

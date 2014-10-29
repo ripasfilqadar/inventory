@@ -8,8 +8,12 @@ class User extends CI_Model
 	function check($id,$password)
 	{
 		$query="select * from user where username='$id' and password='$password'";
-		$query=$this->db->query($query);
-		$num=$query->row();
-		return $num->status;
+		if ($this->db->query($query)!=NULL)
+		{
+			$query=$this->db->query($query);
+			$num=$query->row();
+			return $num->status;
+		}
+		else return 0;
 	}
 }

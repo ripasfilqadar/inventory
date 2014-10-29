@@ -32,11 +32,11 @@
                                              <tbody>
                                                  <tr>
                                        
-                                                    <td><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($row->foto).'" width=100px height=120px>'?></td>
+                                                    <td><img src="<?php echo base_url()?>picture/<?php echo $row->id_barang?>.png" width="150px" height="150px"></td>
                                                      <td ><span class="row_table"><?php echo $row->nama_barang;?></span></td>
                                                     <td><span class="row_table"><?php
-                                                        if ($row->keadaan==0) echo "Bagus";
-                                                        else echo "Rusak"?></span></td>
+                                                        if ($row->keadaan==1) echo "Bagus";
+                                                        elseif($row->keadaan==0) echo "Rusak"?></span></td>
                                                     <td><span class="row_table"><?php
                                                         if ($row->status == 1&& $flag==0) {?>
                                                             <a class="link" style="float:left;padding:3px 3px 3px 3px;color:white"href="<?php echo base_url();?>pinjam/pinjam_barang/<?php echo $row->id_barang?>">Pinjam</a>
@@ -80,6 +80,61 @@
         <!-- /#page-wrapper -->
 
     </div>
+    
+<div id="penutupan" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="row">
+
+            <div class="col-sm-12">
+                <center><h2><b>Alhamdulillah PPDB SD, SMP, SMA, dan SMK sudah selesai.<br>
+                Terima Kasih Atas Partisipasinya</b></h2></center>
+                <hr/>
+                <!--<center><p>PPDB SD dapat diakses melalui link berikut : <a href="http://sd.ppdbsurabaya.net" target="_blank">sd.ppdbsurabaya.net</a></p></center>-->
+            </div>
+        </div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<script type="text/javascript">
+ $(window).load(function(){
+        $('#penutupan').modal('show');
+    });
+</script>        </div>
+        <div class="col-md-1"></div>
+ </div>
+<script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-22367884-1']);
+      _gaq.push(['_setDomainName', 'ppdbsurabaya.net']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+      
+      $(document).ready(function() {
+
+                      });
+</script>
+
+<script type="text/javascript">
+    $(window).load(function(){
+        $('#penutupan').modal('show');
+    });
+
+    $('#penutupan').modal({
+      backdrop: 'static',
+      keyboard: false
+    })
+</script>
     <!-- /#wrapper -->
 
     <!-- jQuery Version 1.11.0 -->

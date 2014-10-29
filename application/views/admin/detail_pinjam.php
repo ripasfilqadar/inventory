@@ -53,7 +53,7 @@
                                 <tbody>
                                     <tr>
                                         <td><?php echo $row->nama_barang;?></td>
-                                        <td><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($row->foto).'" width=150px height=200px>'?></td>
+                                        <td><img src="<?php echo base_url()?>picture/<?php echo $row->id_barang?>.png" width="100px" height="100px"></td>
                                         <td><?php
                                             if ($row->keadaan==0) echo "Bagus";
                                             else echo "Rusak"?></td>

@@ -44,17 +44,16 @@ class Admin_page extends CI_Controller
 		$this->load->view('admin/kiriadmin',$data);
 		$this->load->view('admin/tambah_barang');
 	}
-		public function list_barang()
+		public function list_barang($id=0)
 	{
 			$data['base_url'] = 'http://localhost/invent/admin_page/list_barang/';
 			$jml=$this->db->get('barang');
 			$jml=$jml->num_rows();
 			$data['total_rows'] = $jml;
-			$data['per_page'] = 3;
+			$data['per_page'] = 15;
 			$this->pagination->initialize($data);
 			$data['flag']=0;
-			$data['adminflag']=0;
-			$id=0;
+			$data['adminflag']=0;			
 			$data['flagkiri']=1;
 			$data['flagheader']=2;
 			$data['halaman']=$this->pagination->create_links();
@@ -63,12 +62,5 @@ class Admin_page extends CI_Controller
 			$this->load->view('admin/kiriadmin',$data);
 			$this->load->view('admin/pinjam',$data);;
 	}
-	function edit_barang($id)
-	{
-		$data['data']=$this->barang->get_barang3($id);
-		$data['flagheader']=0;
-		$this->load->view('admin/header');
-		$this->load->view('admin/kiriadmin',$data);
-		$this->load->view('admin/edit_barang',$data);
-	}
+	
 }

@@ -14,16 +14,12 @@
                         </h1>
                     </div>
                 </div>
-                <!-- /.row -->
+                <!-- /.row -->  
                 <h2 style="text-align:center"> Tambah Barang Inventaris</h2>
                     <div class="form" style="margin-left:32%">
                         <?php
                         $attributes = array('enctype' => 'multipart/form-data');
                             echo form_open('admin/tambah_barang',$attributes); ?>
-                            <div class="form-group" style="width:50%">
-                                <label> ID Barang </label>
-                                <input class="form-control" name="id">
-                            </div>
                              <div class="form-group" style="width:50%">
                                 <label> Nama Barang </label>
                                 <input class="form-control" name="name">
@@ -45,15 +41,15 @@
 
                             <div class="form-group" style="width:50%">
                                 <label> Gambar </label>
-                                <input name="foto" type="file">
+                                <input name="userfile" type="file">
                             </div>
                     
                             <input type="submit" class="btn btn-default" value="Tambah">
                             
                         </form>
-                        <div class="notif">
-                        <?php echo validation_errors();?>
-                        </div>
+                    <div class="notif">
+                    <?php echo validation_errors();?>
+                    </div>
                 <!-- /.row -->
 
             </div>

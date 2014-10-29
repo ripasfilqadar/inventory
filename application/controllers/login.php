@@ -35,10 +35,10 @@ class Login extends CI_Controller
 			$this->session->set_userdata($data);
 			redirect ('admin_page/list_barang');
 		}
-		elseif (a==0)
+		elseif ($a==0)
 		{
 			echo $a;
-			//redirect('page/login');
+			redirect('page/login');
 		}
 	}
 	function logout()

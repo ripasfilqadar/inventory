@@ -26,6 +26,11 @@
                                         <td>Nama</td>
                                         <td>NRP</td>
                                         <td>Status</td>
+                                        <?php if($this->session->userdata('status_admin')==2)
+                                        {?>
+                                            <td></td>    
+                                        <?php }; ?>
+                                        
                                         <td></td>
                                     </tr>
                                 </thead>
@@ -46,7 +51,10 @@
                                         </td>
                                         <?php if ($flag==1)
                                         {?>
-                                        <td><a href="<?php echo base_url();?>admin_page/detail_pinjam/<?php echo $row->id_peminjaman?>">LIST</a></td> <?php };?>
+                                        <?php if ($this->session->userdata('status_admin')==2) {?>
+                                        <td><a class="link" style="float:left;padding:3px 3px 3px 3px;color:white" href="<?php echo base_url();?>admin_page/detail_pinjam/<?php echo $row->id_peminjaman?>">LIST</a></td> <?php };   
+                                        }?>
+                                        <td><a class="link" style="float:left;padding:3px 3px 3px 3px;color:white"href="<?php echo base_url();?>pinjam/bukti/<?php echo $row->id_peminjaman?>">Form</a></td>
                                     </tr>
                                 </thead>
                                 <tbody>

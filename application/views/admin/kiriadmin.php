@@ -16,11 +16,9 @@
             </div>
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                <?php 
-                if ($this->session->userdata('status_admin')==2){?>
                     <li <?php if ($flagheader==1){?>class="active"<?php }?>>
                         <a href="<?php echo base_url()?>admin_page/list_pinjam">List Peminjaman</a>
-                     </li><?php }; ?>
+                     </li>
                     <li  <?php if ($flagheader==2){?>class="active"<?php }?>>
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo">Inventaris<i class="fa fa-fw fa-caret-down"></i></a>
                             <ul id="demo" class="collapse">
@@ -33,7 +31,7 @@
                             </ul>
                     </li>
                     <li >
-                        <a href="<?php echo base_url()?>login/logout">Logout Admin</a>
+                        <a href="<?php echo base_url()?>login/logout">Logout admin_page</a>
                      </li>
             </div>
 
